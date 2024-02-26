@@ -3,7 +3,12 @@
 import { useState } from "react";
 import { ExclusiveCircleProps } from "./types";
 
-const Circle = ({ className, color, gradient }: ExclusiveCircleProps) => {
+const Circle = ({
+    className,
+    color,
+    gradient,
+    stroke,
+}: ExclusiveCircleProps) => {
     const [gradientId] = useState(
         `gradient-${Math.random().toString(36).substring(7)}`
     );
@@ -16,7 +21,14 @@ const Circle = ({ className, color, gradient }: ExclusiveCircleProps) => {
             xmlns="http://www.w3.org/2000/svg"
         >
             {color ? (
-                <circle className={color} cx="50" cy="50" r="50" />
+                <circle
+                    className={color}
+                    cx="50"
+                    cy="50"
+                    r="50"
+                    stroke={stroke?.color}
+                    strokeWidth={stroke?.width}
+                />
             ) : (
                 <g>
                     <defs>
@@ -57,6 +69,8 @@ const Circle = ({ className, color, gradient }: ExclusiveCircleProps) => {
                         cy="50"
                         r="40"
                         fill={`url(#${gradientId})`}
+                        stroke={stroke?.color}
+                        strokeWidth={stroke?.width}
                     />
                 </g>
             )}

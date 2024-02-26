@@ -1,6 +1,10 @@
 interface CircleProps {
     className?: string;
     color?: string;
+    stroke?: {
+        color: string;
+        width: string;
+    };
     gradient?: {
         start: string;
         middle?: {
@@ -8,6 +12,10 @@ interface CircleProps {
             position: string;
         };
         end: string;
+    };
+    size?: {
+        height: string;
+        width: string;
     };
 }
 
